@@ -1,0 +1,41 @@
+html, body{
+    margin: 0;
+    background: #eee;
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+}
+
+.menu a{
+    color: inherit;
+    line-height: 50px;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.4s;
+}
+
+.menu a.active{
+    color: #ff0;
+}
+
+.content{
+    margin-top: 70px;
+}
+	.dropTop:after{
+		display: inline-block;
+		content:'';
+		border: 15px solid transparent;
+		border-bottom: 15px solid rgba(255,255,255,0.5);
+		margin-top: -5px;
+		/* position: absolute;
+		top: 10px;
+		left: 15px;
+		z-index: 1001; */
+	}

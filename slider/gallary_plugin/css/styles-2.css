@@ -1,0 +1,35 @@
+html, body, ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+.gallery{
+    width: 300px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.gallery .photos{
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+
+.gallery .photos img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 300px;
+    width: 100%;
+}
+
+.gallery .photos img.showed{
+    left: 0;
+}
+.gallery .photos img:first-child {
+    left: 0;
+}
+
+.hide {
+    display: none;
+}

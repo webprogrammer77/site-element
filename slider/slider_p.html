@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Slider</title>
+	<link rel="stylesheet" href="slider.css">
+</head>
+
+<body>
+	
+<div class="gallery gallery-1">
+	<div class="photos">
+		<img src="img/Chrysanthemum.jpg" class="showed" alt="">
+		<img src="img/Desert.jpg" alt="">
+		<img src="img/Hydrangeas.jpg" alt="">
+		<img src="img/Jellyfish.jpg" alt="">
+		<img src="img/Koala.jpg" alt="">
+		<img src="img/Lighthouse.jpg" alt="">
+		<img src="img/Penguins.jpg" alt="">
+		<img src="img/Tulips.jpg" alt="">
+	</div>
+	<div class="buttons">
+		<span href="#" class="prev"><span class=".prev__arrow"></span></span>
+		<span href="#" class="next"><span class=".next__arrow"></span></span>
+	</div>
+</div>
+
+<div class="gallery gallery-2">
+	<div class="photos">
+		<img src="img/Chrysanthemum.jpg" class="showed" alt="">
+		<img src="img/Desert.jpg" alt="">
+		<img src="img/Hydrangeas.jpg" alt="">
+		<img src="img/Jellyfish.jpg" alt="">
+		<img src="img/Koala.jpg" alt="">
+		<img src="img/Lighthouse.jpg" alt="">
+		<img src="img/Penguins.jpg" alt="">
+		<img src="img/Tulips.jpg" alt="">
+	</div>
+	<div class="buttons">
+		<a href="#" class="prev"><span class=".prev__arrow"></span></a>
+		<a href="#" class="next"><span class=".next__arrow"></span></a>
+	</div>
+</div>
+<div class="gallery gallery-5">
+	<div class="photos">
+		<img src="img/Chrysanthemum.jpg" class="showed" alt="">
+		<img src="img/Desert.jpg" alt="">
+		<img src="img/Hydrangeas.jpg" alt="">
+		<img src="img/Jellyfish.jpg" alt="">
+		<img src="img/Koala.jpg" alt="">
+		<img src="img/Lighthouse.jpg" alt="">
+		<img src="img/Penguins.jpg" alt="">
+		<img src="img/Tulips.jpg" alt="">
+	</div>
+	<div class="buttons">
+		<a href="#" class="prev"><span class=".prev__arrow"></span></a>
+		<a href="#" class="next"><span class=".next__arrow"></span></a>
+	</div>
+</div>
+<div class="gallery gallery-9">
+	<div class="photos">
+		<img src="img/Chrysanthemum.jpg" class="" alt="">
+		<img src="img/Desert.jpg" alt="">
+		<img src="img/Hydrangeas.jpg" alt="">
+		<!-- <img src="img/Jellyfish.jpg" alt="">
+		<img src="img/Koala.jpg" alt="">
+		<img src="img/Lighthouse.jpg" alt="">
+		<img src="img/Penguins.jpg" alt=""> -->
+		<img src="img/Tulips.jpg" alt="">
+	</div>
+	<div class="buttons">
+		<a href="#" class="prev"><span class=".prev__arrow"></span></a>
+		<a href="#" class="next"><span class=".next__arrow"></span></a>
+	</div>
+</div>
+
+
+
+	
+<script src="../jquery/jquery-3.3.1.min.js"></script>
+<script src="sliderWebprogrammer77.jquery.1.1.js"></script>
+	<script src="slider.js"></script>
+
+	<script>
+$('.gallery-9').sliderWebprogrammer77({
+images: 'img',
+btnPrev: '.buttons .prev',
+btnNext: '.buttons .next',
+auto: true,
+rate: 3000
+});
+
+
+	</script>
+
+</body>
+
+</html>

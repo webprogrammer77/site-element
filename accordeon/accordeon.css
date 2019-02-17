@@ -1,0 +1,25 @@
+.card{
+	transition: 0.6s;
+	/* transform: rotate(90deg); */
+	/* transform: rotate(90deg); */
+}
+.collapse{
+	overflow: hidden;
+	/*animation: anshowing 1s;*/
+	display:none;
+	/* transform: rotate(90deg); */
+}
+.collapse.show{	
+	/* transition: 0.6s; */
+	/* opacity:1; */
+	/* animation: showing 3s ease-in-out infinite; */
+	/* animation: showing 1s; */
+}
+@keyframes showing{
+	from {height: 0;}
+		to {height: 250px;}
+}
+@keyframes anshowing{
+	from {height: 250px;}
+	to {height: 0;}	
+}

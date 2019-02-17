@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>timer2</title>
+</head>
+<body>
+
+<div class="clock"></div>
+<script src="../jquery/jquery-3.3.1.min.js"></script>
+<script>
+// 24 hour clock
+setInterval(function() {
+
+var currentTime = new Date();
+var hours = currentTime.getHours();
+var minutes = currentTime.getMinutes();
+var seconds = currentTime.getSeconds();
+
+// Add leading zeros
+hours = (hours < 10 ? "0" : "" ) + hours; minutes=(minutes < 10 ? "0" : "" ) + minutes; seconds=(seconds < 10 ? "0" : "" ) + seconds; // Compose the string for display 
+var currentTimeString=hours + ":" + minutes + ":" + seconds;
+ $(".clock").html(currentTimeString); }, 1000);
+</script>
+</body>
+</html>

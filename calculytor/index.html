@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор</title>
+	<link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="calc">
+<h3>Калькулятор</h3>
+<input type="text" name="num1">
+<input type="button" name="sum" value="+" data-op="+">
+<input type="button" name="min" value="-" data-op="-">
+<input type="button" name="div" value="/" data-op="/">
+<input type="button" name="mult" value="*" data-op="*">
+<input type="text" name="num2">
+=
+<span class="res"></span>
+	</div>
+<br>
+<br>
+<br>
+
+<div class="calc1">
+<h3>Калькулятор1</h3>
+<input type="text" name="num10"> и
+<input type="text" name="num20">
+<input type="button" name="calc" value="=">
+<span class="res10"></span>
+</div>
+
+<div class="calc2">
+	<h3>Калькулятор2</h3>
+Осталось: <input type="text" name="all" value="110">
+Ваш заказ:	<input type="text" name="order" value="0">
+	<input type="button" name="add" value="+">
+	<input type="hidden" data-order="0">
+	<!-- <span class="orders"></span> -->
+</div>
+
+
+
+
+
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>

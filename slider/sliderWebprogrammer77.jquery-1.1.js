@@ -2,8 +2,8 @@
 	$.fn.sliderWebprogrammer77 = function (settings) {
 		var defaults = {
 				images: 'img',
-				btnPrev: '.buttons .prev',
-				btnNext: '.buttons .next',
+				btnPrev: '#prev',
+				btnNext: '#next',
 				auto: true,
 				rate: 3000
 			},
@@ -30,11 +30,12 @@
 			// images.first().clone().appendTo(wrap);
 			images.last().clone().prependTo(wrap);
 			if(bullets){
-				slider.append('<ul class="bullets"></ul>');
+				slider.append('<ul class="pagination"></ul>');
 				for(var k = 0; k < imagesLength; k ++){
-					images.eq(k). addClass('image' + k);
-					slider.find('.bullets').append('<li class="bullet' + k + '"></li>');
+					images.eq(k). addClass('slide' + k);
+					slider.find('.pagination').append('<li class="pagination__item bullet' + k + '"></li>');
 				}
+				$('li.pagination__item').addClass('active');
 
 			}
 		
@@ -69,12 +70,8 @@
 					left: position
 				},animTime, bez, function(){
 					isRun = false;
-					$('.bullets li').not($('.bullets li').eq(i - 1)).css({
-						border: 'none'
-					})
-					$('.bullets li').eq(i-1).css({
-						border: '1px solid green'
-					})
+					$('.pagination li').not($('.pagination li').eq(i - 1)).removeClass('active')
+					$('.pagination li').eq(i-1).addClass('active');
 				})
 			}
 
@@ -107,7 +104,7 @@
 			btnPrev.on('click', function (e) {
 
 				e.preventDefault();
-				e.stopPropagation();
+				//e.stopPropagation();
 				clearInterval(moving);
 
 				direction = -1;
@@ -119,7 +116,7 @@
 
 			btnNext.on('click', function (e) {
 				e.preventDefault();
-				e.stopPropagation();
+				//e.stopPropagation();
 				clearInterval(moving);
 				direction = 1;
 				//next();
@@ -127,7 +124,7 @@
 
 			});
 
-				$('.bullets li').on('click', function (e) {
+				$('.pagination li').on('click', function (e) {
 						if (isRun) {
 							return;
 						}
@@ -136,12 +133,8 @@
 					clearInterval(moving);
 					n = $(this).index();
 					i=n;
-					$('.bullets li').not($(this)).css({
-						border: 'none'
-					});
-					$(this).css({
-						border: '1px solid green'
-					})
+					$('.pagination li').not($(this)).removeClass('active');
+					$(this).addClass('active');
 					wrap.animate({
 						left: -sliderWidth * (n+1) + 'px'
 					},animTime,bez,function () {

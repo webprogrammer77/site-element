@@ -262,3 +262,28 @@ html, body, ul, li{
 	background: rgba(0,0,0,0.5);
 	box-shadow: 0 0 3px 0 rgba(0,0,0,0.8);
 }
+
+.gallery-9 .pagination{	
+	display:flex;
+	position:absolute;
+	bottom:30px;
+	left: 50%;
+	transform: translate(-50%, 0);
+	list-style: none;
+
+}
+.gallery-9 .pagination li{
+	width: 12px;
+	height: 12px;
+	border-radius:50%;
+	margin:5px;
+	/* background: rgba(0,255,0,0.5); */
+	box-shadow: 0 0 3px 1px #20b5a1;
+	cursor: pointer;
+}
+.gallery-9 .pagination li.active{
+	background: #20b5a1;;
+}
+#next,#prev{
+	z-index: 1000;
+}

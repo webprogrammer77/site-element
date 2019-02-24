@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,71 +11,77 @@
 	<script src="../jquery/jquery-3.3.1.min.js"></script>
 	<script src="../bootstrap/bootstrap/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-	
 
 
 
 
-<div class="form">
-	<form action="mail/mail_lesson.php" class="was-validated" id="form_caligraphy" method="post">Заполните все поля
-		со звездочкой:
-		<div class="form-group has-feedback">
-			<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input
-				 class="form-control" id="name" name="name" placeholder="ФИО *" required="" type="text" /> <span aria-hidden="true"
-				 class="glyphicon form-control-feedback"></span></div>
-		</div>
 
-		<div class="form-group has-feedback">
-			<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> <input
-				 class="form-control" id="email" name="email" placeholder="Email *" required="" type="email" /> <span aria-hidden="true"
-				 class="glyphicon form-control-feedback"></span></div>
-		</div>
+	<div class="form">
+		<form action="mail/mail_lesson.php" class="was-validated" id="form_caligraphy" method="post">Заполните все поля
+			со звездочкой:
+			<div class="form-group has-feedback">
+				<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> <input
+					 class="form-control" id="name" name="name" placeholder="ФИО *" required="" type="text" /> <span aria-hidden="true"
+					 class="glyphicon form-control-feedback"></span></div>
+			</div>
 
-		<div class="form-group has-feedback">
-			<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> <input
-				 class="form-control" id="phone" name="phone" placeholder="Телефон *" required="" type="tel" /> <span aria-hidden="true"
-				 class="glyphicon form-control-feedback"></span></div>
-		</div>
+			<div class="form-group has-feedback">
+				<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> <input
+					 class="form-control" id="email" name="email" placeholder="Email *" required="" type="email" /> <span aria-hidden="true"
+					 class="glyphicon form-control-feedback"></span></div>
+			</div>
 
-		<div class="form-group has-feedback">
-			<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span> <input
-				 class="form-control" id="age" name="age" placeholder="Возраст ребенка*" required="" type="text" /> <span
-				 aria-hidden="true" class="glyphicon form-control-feedback"></span></div>
-		</div>
+			<div class="form-group has-feedback">
+				<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> <input
+					 class="form-control" id="phone" name="phone" placeholder="Телефон *" required="" type="tel" /> <span aria-hidden="true"
+					 class="glyphicon form-control-feedback"></span></div>
+			</div>
 
-		<div class="form-group "><label for="message">Сообщение:</label>
+			<div class="form-group has-feedback">
+				<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span> <input
+					 class="form-control" id="age" name="age" placeholder="Возраст ребенка*" required="" type="text" /> <span
+					 aria-hidden="true" class="glyphicon form-control-feedback"></span></div>
+			</div>
 
-			<div class="input-group textarea"><textarea class="form-control" id="message" name="message" rows="5"></textarea></div>
-		</div>
+			<div class="form-group "><label for="message">Сообщение:</label>
 
-		<div class="custom-control custom-checkbox"><input checked="checked" class="custom-control-input" id="privat" type="checkbox" />
-			<label class="custom-control-label" for="privat"> Нажимая на кнопку &quot;Записывайтесь&quot;, я даю согласие на
-				обработку персональных данных и соглашаюсь c <a href="/Privacy" target="_blank">условиями обработки персональных
-					данных и политики конфиденциальности.</a> </label></div>
-		<span id="success_caligraphy" style="display:none;"> <span>Спасибо!<br />
-				Вы успешно зарегистрировались.</span> <span class="request_caligraphy__close" href="#"></span> </span> <span id="error_caligraphy"
-		 style="display:none;"> <span> Что-то пощло не так.<br />
-				Попробуйте еще раз</span> <span class="request_caligraphy__close" href="#"></span> </span><button class="btn btn-primary"
-		 data-request="" form="form_caligraphy" id="submit_caligrafy" type="submit">Записывайтесь</button>
-	</form>
-</div>
+				<div class="input-group textarea"><textarea class="form-control" id="message" name="message" rows="5"></textarea></div>
+			</div>
+
+			<div class="custom-control custom-checkbox"><input checked="checked" class="custom-control-input" id="privat" type="checkbox" />
+				<label class="custom-control-label" for="privat"> Нажимая на кнопку &quot;Записывайтесь&quot;, я даю согласие на
+					обработку персональных данных и соглашаюсь c <a href="/Privacy" target="_blank">условиями обработки персональных
+						данных и политики конфиденциальности.</a> </label></div>
+			<span id="success_caligraphy" style="display:none;">
+				<span>Спасибо!<br /> Вы успешно зарегистрировались.</span>
+				<span class="request_caligraphy__close" href="#"></span>
+			</span>
+			<span id="error_caligraphy" style="display:none;">
+				<span> Что-то пошло не так.<br />Попробуйте еще раз</span>
+				<span class="request_caligraphy__close" href="#"></span>
+			</span>
+			<button class="btn btn-primary" data-request="" form="form_caligraphy" id="submit_caligrafy" type="submit">Записывайтесь</button>
+		</form>
+	</div>
 
 
 
-<script src="mail/validator.min.js"></script>
-<script src="mail/form.js"></script>
-<script>
-	$(function () {
-		$('#form_caligraphy').validator({
-			feedback: {
-				success: 'glyphicon-thumbs-up',
-				error: 'glyphicon-thumbs-down'
-			}
+	<script src="mail/validator.min.js"></script>
+	<script src="mail/form.js"></script>
+	<script>
+		$(function () {
+			$('#form_caligraphy').validator({
+				feedback: {
+					success: 'glyphicon-thumbs-up',
+					error: 'glyphicon-thumbs-down'
+				}
+			});
 		});
-	});
-</script>
-<script>/*
+	</script>
+	<script>
+		/*
 	$(function () {
 		//при нажатии на кнопку с id="save"
 		$('#submit_caligrafy').on('click', function () {
@@ -111,7 +118,7 @@
 		});
 	});
 	*/
-</script>
+	</script>
 </body>
 
 </html>

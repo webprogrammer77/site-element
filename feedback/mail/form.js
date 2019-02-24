@@ -73,7 +73,10 @@ $(function () {
 	
 	$('.request_caligraphy__close').on('click', function(e){
 		e.preventDefault();
+		
 		$('#success_caligraphy').fadeOut(300);
+		$('#error_caligraphy').fadeOut(300);
+
 		$('.popup-overlay_caligraphy').fadeOut(300);
 		$('.form-group').removeClass('has-success');
 	});

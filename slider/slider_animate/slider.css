@@ -1,0 +1,53 @@
+html, body, ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+.gallery{   
+		position: relative;
+		width: 860px;
+		margin: 20px auto;
+		text-align: center;
+		overflow: hidden;	
+}
+			
+.gallery .photos{
+    position: relative;
+		height: 670px;		
+		display: flex;
+		 transition: opacity 1.5s;
+}
+
+.gallery .photos img{
+	  position: absolute;
+    width: 0;
+		left: 0;
+    transition: opacity 1s;  
+}
+.gallery .photos img.showed{
+    width: 100%;
+}
+.gallery .buttons{
+	margin-top: 20px;
+}
+.gallery .buttons .prev,
+.gallery .buttons .next{
+	position: absolute;
+	z-index: 1000;
+	top: 50%;
+	left:10px;
+	width: 30px;
+	height: 30px;
+	transform: rotate(225deg);
+	border:5px solid rgba(255,255,255, 0.5);
+		border-left:none;
+		border-bottom:none;
+	}
+	.gallery .buttons .next{
+		left: auto;
+		right: 10px;
+		transform: rotate(45deg);
+	}
+#next,#prev{
+	z-index: 1000;
+}

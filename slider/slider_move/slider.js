@@ -1,6 +1,6 @@
 $(function () {
 	new Slider({
-		images: '.gallery .photos img',
+		slides: '.gallery .slides .slide',
 		btnPrev: '.gallery .buttons .prev',
 		btnNext: '.gallery .buttons .next',
 		auto: true,
@@ -12,71 +12,83 @@ $(function () {
 });
 
 function Slider(obj) {
-	this.images = $(obj.images);
+	this.slide = $(obj.slides);
 	this.btnPrev = $(obj.btnPrev);
 	this.btnNext = $(obj.btnNext);
 	this.auto = obj.auto;
 	this.rate = obj.rate;
 
 	var slider = this,
-		i = 0,
+		run = false,
+		i = 1,
 		direction = 1,
 		animTime = 1000,
-		wrap = slider.images.parent(),
-		sliderWidth = slider.images.eq(0).width();
+		bez = 'linear',
+		wrap = slider.slide.parent(),
+		container = wrap.parent(),
+		bullets = obj.bullets || true,
+		slideLength = slider.slide.length,
+		sliderWidth = slider.slide.eq(0).width();
 
 	console.log('sliderWidth: ' + sliderWidth);
+	 //slider.slide.eq(0).clone().appendTo(wrap);
+	// slider.slide.eq(slideLength-1).clone().prependTo(wrap);
 
+		slider.slide.last().clone().prependTo(wrap);
+		if (bullets) {
+			container.append('<ul class="pagination"></ul>');
+			for (var k = 0; k < slideLength; k++) {
+				slider.slide.eq(k).addClass('slide' + k);
+				container.find('.pagination').append('<li class="pagination__item bullet' + k + '"></li>');
+			}
+			$('li.pagination__item').first().addClass('active');
 
-
+		}
+		wrap.css({
+			left:"-250px"
+		});
 	this.move = function (direction) {
-		var showSlide = slider.images.eq(i);
-
-		showSlide.css({
-			
-			"left": 0
-		});
-		showSlide.animate({
-				
-				"left": (-sliderWidth * direction) + 'px'
-
-			}, animTime, "linear"
-
-		);
-
+		// var showSlide = slider.slide.eq(i);
+		if(run){
+			return;
+		}
+		
 		i += direction;
-		if (i < 0) {
-			i = slider.images.length - 1;
-		}
-		if (i >= slider.images.length) {
-			i = 0;
-		}
-
-		var nextSlide = slider.images.eq(i);
-		nextSlide.css({
-			
-			"left": sliderWidth * direction
-		});
-
-		nextSlide.animate({
-
-				
-				"left": 0
-
-			}, animTime, "linear",
-			function () {
-				wrap.removeClass('move')
+		run = true;
+			if (i < 0) {
+				i = slideLength - 1;
+				wrap.css({
+					left: -slideLength * sliderWidth - 1 + 'px'
+				});
+			}
+			if (i > slideLength) {
+				i = 1;
+				wrap.css({
+					left: 0
+				});
 			}
 
-		);
+		console.log(i);
+		console.log(-sliderWidth * i  + 'px');
 
+		wrap.animate({
+			
+			left: -sliderWidth * (i)  + 'px'		
+		}, animTime, 'linear', function () {
+
+			run = false;
+				$('.pagination li').not($('.pagination li').eq(i - 1)).removeClass('active')
+				$('.pagination li').eq(i - 1).addClass('active');
+
+		});		
+		
 
 	}
 
 	if (slider.auto) {
 
 		var moving = setInterval(() => {
-			//direction = 1;
+			
 			slider.move(direction);
 
 		}, slider.rate);
@@ -84,32 +96,19 @@ function Slider(obj) {
 	slider.btnPrev.on('click', function (e) {
 
 		e.preventDefault();
-		e.stopPropagation();
-		clearInterval(moving);
-		if (wrap.hasClass('move')) {
-			return;
-		} else {
-			wrap.addClass('move');
+			
 		direction = -1;
-		slider.move(direction);
-		}
+		slider.move(direction);		
 
 	});
 
 	slider.btnNext.on('click', function (e) {
 		e.preventDefault();
-		e.stopPropagation();
-		clearInterval(moving);
-		if (wrap.hasClass('move')) {
-			return;
-		} else {
-			wrap.addClass('move');
+	
 			direction = 1;
 			slider.move(direction);
 
-		}
-
-	});
+		});
 
 	
 
@@ -121,11 +120,28 @@ function Slider(obj) {
 
 		wrap.on('mouseout', function () {
 			moving = setInterval(() => {
-				//direction = 1;
+			
 				slider.move(direction);
 
 			}, slider.rate);
 		});
+
+			$('.pagination li').on('click', function (e) {
+				if (run) {
+					return;
+				}
+				run = true;
+
+				clearInterval(moving);
+				n = $(this).index();
+				i = n;
+				$('.pagination li').not($(this)).removeClass('active');
+				$(this).addClass('active');
+				wrap.animate({
+					left: -sliderWidth * (n + 1) + 'px'
+				}, animTime, bez, function () {	run = false;})
+				
+			});
 
 
 	}

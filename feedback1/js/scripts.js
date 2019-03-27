@@ -1,49 +1,67 @@
-$(function(){
-    
-    let $form = $('.app');
-    let $res = $('.result');
-    
-    $('.send').on('click', function(e){
-			$(this).prop("disabled", true);
-			$('.fa-spinner').css('display','inline-block');
-        $.post('app.php', $form.serialize(), function(data){
-            if(data.res){
-                $res.html('Заявка отправлена!');
-                $form.slideUp(300);
-            }
-            else{
-								
-                $res.html(data.errors.toString());
-								console.log(data.errors); 
-								if (data.errors.name) {										
-										$('[name="name"] + span').css({"display":"inline"}).html(data.errors.name);
-								} 
-								if (data.errors.phone) {
-									$('[name="phone"] + span').css({"display": "inline"}).html(data.errors.phone);
-								} 
-								if (data.errors.email) {
-									$('[name="email"] + span').css({"display": "inline"}).html(data.errors.email);
-								}
-						}
-						$(".send").prop("disabled", false);
-							$('.fa-spinner').css('display', 'none');
-        }, 'json');
-        
-		});
-	
-		
+$(function () {
 
-    
-    /*
-        $(...).load - подгрузить в html-элемент данные с сервера
-        $.get       - выполнить get-запрос на сервер
-        $.post      - выполнить post-запрос на сервер
-        $.ajax      - выполнить любой запрос на сервер с тонкой настройкой
+	let $form = $('.app');
+	let $res = $('.result');
+	let $loading = $('.fa-spinner');
+	let $errors = $('.error');
+	let isRun = false;
+
+$('.send').on('click', function () {
+	if (isRun) {
+		return;
+	}
+
+	isRun = true;
+	$loading.fadeIn(100);
+	$res.empty();
+
+	$.post('app.php', $form.serialize(), function (data) {
+			if (data.res) {
+				$res.html('Заявка отправлена!');
+				$form.slideUp(300);
+			} else {
+				$errors.empty();
+
+				for (let name in data.errors) {
+					let target = $('[name=' + name + ']');
+
+					if (target.length > 0) {
+						target.next().html(data.errors[name]);
+						if (data.errors[name]) {
+							target.next().fadeIn(100);
+						}
+					}
+					console.log(data.errors[name]);
+
+				}
+
+			}
+		}, 'json')
+		.always(function () {
+			$loading.hide();
+			isRun = false;
+		})
+		.fail(function () {
+			$res.html('Сервер лёг!');
+		});
+
+});
+
+
+
+
+
+	/*
+	    $(...).load - подгрузить в html-элемент данные с сервера
+	    $.get       - выполнить get-запрос на сервер
+	    $.post      - выполнить post-запрос на сервер
+	    $.ajax      - выполнить любой запрос на сервер с тонкой настройкой
+	*/
+
+	/*
+	    $.post(урл, объект, коллбек на успех, тип данных для коллбека)
+	    
     */
-    
-    /*
-        $.post(урл, объект, коллбек на успех, тип данных для коллбека)
-    
-    */
-    
+	
+
 });

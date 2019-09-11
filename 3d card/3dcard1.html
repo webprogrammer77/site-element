@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3d Card</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #3d385a;
+    }
+
+    .section {
+      perspective: 1000px;
+    }
+
+    .container {
+      width: 680px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      transition: 1s;
+      transform: rotateX(55deg) rotateZ(-45deg) rotateY(10deg);
+      transform-style: preserve-3d;
+    }
+
+    .container-origin {
+      transform: rotate(0);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .card {
+      width: 200px;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      cursor: pointer;
+      transform: translateZ(10px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <div class="container">
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+      <div class="card"><img src="https://codyhouse.co/demo/3d-animated-mockup/img/cd-app-image.png" alt=""></div>
+    </div>
+  </div>
+  <script src="../jquery/jquery-3.3.1.min.js"></script>
+  <script>
+    $('.card').on('click', function () {
+      $('.container').toggleClass('container-origin');
+    })
+  </script>
+</body>
+
+</html>
